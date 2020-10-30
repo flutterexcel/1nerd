@@ -7,21 +7,22 @@ class Clientfeedback extends StatefulWidget {
 }
 
 class _FeedbackState extends State<Clientfeedback> {
-  List<String> likesOf = [
-    "1.5k",
-    "809",
-    "708",
-    "496",
-    "229",
-    "190",
+  List<int> likesOf = [
+    15,
+    18,
+    90,
+    20,
+    56,
+    78,
   ];
-  List<String> dislikesOf = [
-    "1.5k",
-    "809",
-    "708",
-    "496",
-    "229",
-    "190",
+
+  List<int> dislikesOf = [
+    100,
+    200,
+    300,
+    500,
+    200,
+    23,
   ];
 
   @override
@@ -31,11 +32,11 @@ class _FeedbackState extends State<Clientfeedback> {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 700,
-                margin: EdgeInsets.only(left: 16, top: 16, right: 170),
+                width: MediaQuery.of(context).size.width * .6,
+                margin: EdgeInsets.only(left: 16, top: 16, right: 40),
                 height: 40,
                 child: TextFormField(
                   controller: _search,
@@ -250,7 +251,8 @@ class _FeedbackState extends State<Clientfeedback> {
 }
 
 class ListFeedbackItems extends StatelessWidget {
-  String itemName, likes, dislikes;
+  String itemName;
+  int likes, dislikes;
   ListFeedbackItems(this.likes, this.dislikes);
   @override
   Widget build(BuildContext context) {
@@ -258,43 +260,11 @@ class ListFeedbackItems extends StatelessWidget {
       color: AppColors.THEME_COLOR,
       margin: EdgeInsets.all(7),
       child: Row(children: <Widget>[
-        Card(
-          elevation: 5,
-          child: Container(
-            width: 109,
-            height: 125,
-            padding: EdgeInsets.all(16),
-            child: Column(
-              children: <Widget>[
-                Image.asset('assets/images/likes.png'),
-                SizedBox(height: 10),
-                Text(likes,
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontFamily: 'Lato',
-                        color: AppColors.BACKGROUND_COLOR)),
-              ],
-            ),
-          ),
+        Liked(
+          likes: likes,
         ),
-        Card(
-          elevation: 5,
-          child: Container(
-            width: 109,
-            height: 125,
-            padding: EdgeInsets.all(16),
-            child: Column(
-              children: <Widget>[
-                Image.asset('assets/images/dislikes.png'),
-                SizedBox(height: 10),
-                Text(likes,
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontFamily: 'Lato',
-                        color: AppColors.BACKGROUND_COLOR)),
-              ],
-            ),
-          ),
+        Dislike(
+          dislikes: dislikes,
         ),
         Card(
           elevation: 5,
@@ -340,22 +310,27 @@ class ListFeedbackItems extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
+                      width: MediaQuery.of(context).size.width * .4,
                       margin: EdgeInsets.fromLTRB(8, 0, 16, 0),
                       child: Text(
-                          "Mailchimp like feature to create custom email templates using the drag and drop option along with \n saving templateds",
+                          "Mailchimp like feature to create custom email templates using the drag and drop option along with saving templateds",
                           style: TextStyle(
                             fontFamily: 'Open',
                             fontSize: 12,
                           )),
                     ),
                     //Addmsg Image
-                    Image.asset('assets/images/chat.png'),
+                    Image.asset(
+                      'assets/images/chat.png',
+                      width: 50,
+                      height: 30,
+                    ),
                     SizedBox(
                       width: 6,
                     ),
-                    Text(likes,
+                    Text(likes.toString(),
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: AppColors.BACKGROUND_COLOR)),
                   ],
@@ -365,6 +340,124 @@ class ListFeedbackItems extends StatelessWidget {
           ),
         ),
       ]),
+    );
+  }
+}
+
+class Liked extends StatefulWidget {
+  int likes;
+  Liked({this.likes});
+  @override
+  _LikedState createState() => _LikedState(likes: likes);
+}
+
+class _LikedState extends State<Liked> {
+  int likes;
+  bool liked = false;
+
+  void _incrementCounter() {
+    setState(() {
+      likes++;
+    });
+  }
+
+  _LikedState({this.likes});
+  _pressed() {
+    setState(() {
+      liked = !liked;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 5,
+      child: Container(
+        width: 109,
+        height: 125,
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.thumb_up,
+                color: liked ? Colors.blueAccent : Colors.grey,
+              ),
+              onPressed: () {
+                _pressed();
+                _incrementCounter();
+              },
+            ),
+
+            //  Image.asset('assets/images/likes.png'),
+            SizedBox(height: 10),
+            Text(likes.toString(),
+                style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'Lato',
+                    color: AppColors.BACKGROUND_COLOR)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Dislike extends StatefulWidget {
+  int dislikes;
+  Dislike({this.dislikes});
+  @override
+  _DislikeState createState() => _DislikeState(dislikes: dislikes);
+}
+
+class _DislikeState extends State<Dislike> {
+  int dislikes;
+  bool disliked = false;
+  _DislikeState({this.dislikes});
+
+  void _decrementCounter() {
+    setState(() {
+      dislikes--;
+    });
+  }
+
+  _pressed() {
+    setState(() {
+      disliked = !disliked;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 5,
+      child: Container(
+        width: 109,
+        height: 125,
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.thumb_down,
+                color: disliked ? Colors.grey : Colors.brown,
+              ),
+              onPressed: () {
+                _pressed();
+                _decrementCounter();
+              },
+            ),
+
+            //  Image.asset('assets/images/likes.png'),
+            SizedBox(height: 10),
+            Text(dislikes.toString(),
+                style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'Lato',
+                    color: AppColors.BACKGROUND_COLOR)),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:feedback/main.dart';
+import 'package:feedback/widgets/search.dart';
 import 'package:flutter/material.dart';
 
 class ClientsPage extends StatelessWidget {
@@ -15,6 +16,7 @@ class ClientsPage extends StatelessWidget {
             ),
             Column(
               children: <Widget>[
+                SearchBar(),
                 Container(
                     margin: EdgeInsets.all(32),
                     child: Text(

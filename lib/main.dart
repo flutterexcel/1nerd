@@ -1,7 +1,6 @@
 import 'package:feedback/resources/app_colors.dart';
 import 'package:feedback/screens/account/account.dart';
 import 'package:feedback/screens/clients/clients.dart';
-import 'package:feedback/screens/feedbac.dart';
 import 'package:feedback/screens/rentals/rentals.dart';
 import 'package:feedback/screens/sales/sales.dart';
 import 'package:flutter/material.dart';
@@ -185,10 +184,7 @@ class Menu extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RentalsPage()),
-                  );
+                  Navigator.pushNamed(context, '/rentals');
                 },
               ),
             ),
