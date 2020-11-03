@@ -32,10 +32,10 @@ class _FeedbackState extends State<Clientfeedback> {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * .6,
+                width: MediaQuery.of(context).size.width * .65,
                 margin: EdgeInsets.only(left: 16, top: 16, right: 40),
                 height: 40,
                 child: TextFormField(
@@ -54,12 +54,16 @@ class _FeedbackState extends State<Clientfeedback> {
                   ),
                 ),
               ),
-              Container(
-                  margin: EdgeInsets.all(16),
-                  child: Image.asset('assets/images/alert.png')),
-              Container(
-                  margin: EdgeInsets.fromLTRB(8, 16, 8, 16),
-                  child: Image.asset('assets/images/msg.png')),
+              Row(
+                children: [
+                  Container(
+                      margin: EdgeInsets.fromLTRB(16, 16, 0, 16),
+                      child: Image.asset('assets/images/alert.png')),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(8, 16, 8, 16),
+                      child: Image.asset('assets/images/msg.png')),
+                ],
+              ),
             ],
           ),
           Row(
@@ -75,14 +79,14 @@ class _FeedbackState extends State<Clientfeedback> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(
+              Flexible(
                 child: Container(
                   margin: EdgeInsets.fromLTRB(16, 0, 4, 16),
                   child: RaisedButton(
                     onPressed: () {},
                     child: const Text('All',
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 13,
                             color: Colors.white,
                             fontFamily: 'Open')),
                     color: AppColors.BACKGROUND_COLOR,
@@ -92,15 +96,15 @@ class _FeedbackState extends State<Clientfeedback> {
                   ),
                 ),
               ),
-              Expanded(
+              Flexible(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(4, 0, 4, 16),
+                  margin: EdgeInsets.fromLTRB(0, 0, 4, 16),
                   padding: EdgeInsets.all(4),
                   child: RaisedButton(
                     onPressed: () {},
                     child: const Text('Anything',
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 13,
                             color: AppColors.BTN_COLOR,
                             fontFamily: 'Open')),
                     color: AppColors.THEME_COLOR,
@@ -111,15 +115,15 @@ class _FeedbackState extends State<Clientfeedback> {
                   ),
                 ),
               ),
-              Expanded(
+              Flexible(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(4, 0, 4, 16),
+                  margin: EdgeInsets.fromLTRB(0, 0, 4, 16),
                   padding: EdgeInsets.all(4),
                   child: RaisedButton(
                     onPressed: () {},
                     child: const Text('Features',
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 13,
                             color: AppColors.BTN_COLOR,
                             fontFamily: 'Open')),
                     color: AppColors.THEME_COLOR,
@@ -130,15 +134,15 @@ class _FeedbackState extends State<Clientfeedback> {
                   ),
                 ),
               ),
-              Expanded(
+              Flexible(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(4, 0, 4, 16),
+                  margin: EdgeInsets.fromLTRB(0, 0, 4, 16),
                   padding: EdgeInsets.all(4),
                   child: RaisedButton(
                     onPressed: () {},
                     child: const Text('Suggestions',
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 13,
                             color: AppColors.BTN_COLOR,
                             fontFamily: 'Open')),
                     color: AppColors.THEME_COLOR,
@@ -149,15 +153,15 @@ class _FeedbackState extends State<Clientfeedback> {
                   ),
                 ),
               ),
-              Expanded(
+              Flexible(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(4, 0, 4, 16),
+                  margin: EdgeInsets.fromLTRB(0, 0, 4, 16),
                   padding: EdgeInsets.all(4),
                   child: RaisedButton(
                     onPressed: () {},
                     child: const Text('Community',
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 13,
                             color: AppColors.BTN_COLOR,
                             fontFamily: 'Open')),
                     color: AppColors.THEME_COLOR,
@@ -168,15 +172,15 @@ class _FeedbackState extends State<Clientfeedback> {
                   ),
                 ),
               ),
-              Expanded(
+              Flexible(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(4, 0, 4, 16),
+                  margin: EdgeInsets.fromLTRB(0, 0, 4, 16),
                   padding: EdgeInsets.all(4),
                   child: RaisedButton(
                     onPressed: () {},
                     child: const Text('Bugs',
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 13,
                             color: AppColors.BTN_COLOR,
                             fontFamily: 'Open')),
                     color: AppColors.THEME_COLOR,
@@ -187,15 +191,15 @@ class _FeedbackState extends State<Clientfeedback> {
                   ),
                 ),
               ),
-              Expanded(
+              Flexible(
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(4, 0, 4, 16),
+                  margin: EdgeInsets.fromLTRB(0, 0, 16, 16),
                   padding: EdgeInsets.all(4),
                   child: RaisedButton(
                     onPressed: () {},
                     child: const Text('Services',
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 13,
                             color: AppColors.BTN_COLOR,
                             fontFamily: 'Open')),
                     color: AppColors.THEME_COLOR,
@@ -310,7 +314,7 @@ class ListFeedbackItems extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width * .4,
+                      width: MediaQuery.of(context).size.width * .45,
                       margin: EdgeInsets.fromLTRB(8, 0, 16, 0),
                       child: Text(
                           "Mailchimp like feature to create custom email templates using the drag and drop option along with saving templateds",
@@ -322,7 +326,7 @@ class ListFeedbackItems extends StatelessWidget {
                     //Addmsg Image
                     Image.asset(
                       'assets/images/chat.png',
-                      width: 50,
+                      width: MediaQuery.of(context).size.width * .03,
                       height: 30,
                     ),
                     SizedBox(
@@ -330,7 +334,7 @@ class ListFeedbackItems extends StatelessWidget {
                     ),
                     Text(likes.toString(),
                         style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 12,
                             fontWeight: FontWeight.bold,
                             color: AppColors.BACKGROUND_COLOR)),
                   ],
@@ -373,22 +377,20 @@ class _LikedState extends State<Liked> {
     return Card(
       elevation: 5,
       child: Container(
-        width: 109,
+        width: MediaQuery.of(context).size.width * .1,
         height: 125,
         padding: EdgeInsets.all(16),
         child: Column(
           children: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.thumb_up,
-                color: liked ? Colors.blueAccent : Colors.grey,
-              ),
-              onPressed: () {
+            InkWell(
+              onTap: () {
                 _pressed();
                 _incrementCounter();
               },
+              child: Image(
+                image: AssetImage('assets/images/likes.png'),
+              ),
             ),
-
             //  Image.asset('assets/images/likes.png'),
             SizedBox(height: 10),
             Text(likes.toString(),
@@ -432,20 +434,19 @@ class _DislikeState extends State<Dislike> {
     return Card(
       elevation: 5,
       child: Container(
-        width: 109,
+        width: MediaQuery.of(context).size.width * .1,
         height: 125,
         padding: EdgeInsets.all(16),
         child: Column(
           children: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.thumb_down,
-                color: disliked ? Colors.grey : Colors.brown,
-              ),
-              onPressed: () {
+            InkWell(
+              onTap: () {
                 _pressed();
                 _decrementCounter();
               },
+              child: Image(
+                image: AssetImage('assets/images/dislikes.png'),
+              ),
             ),
 
             //  Image.asset('assets/images/likes.png'),
