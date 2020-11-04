@@ -1,5 +1,6 @@
 import 'package:feedback/resources/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class Clientfeedback extends StatefulWidget {
   @override
@@ -28,227 +29,408 @@ class _FeedbackState extends State<Clientfeedback> {
   @override
   Widget build(BuildContext context) {
     final _search = TextEditingController();
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width * .65,
-                margin: EdgeInsets.only(left: 16, top: 16, right: 40),
-                height: 40,
-                child: TextFormField(
-                  controller: _search,
-                  decoration: InputDecoration(
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(18.0),
+    final _title = TextEditingController();
+    final _category = TextEditingController();
+    final __description = TextEditingController();
+
+    customDialog() {
+      return showDialog(
+          context: context,
+          builder: (BuildContext c) {
+            return Dialog(
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width * .3,
+                decoration: new BoxDecoration(
+                    borderRadius: BorderRadius.circular(0),
+                    color: Colors.white),
+                child: SingleChildScrollView(
+                  child: Column(children: <Widget>[
+                    Row(children: [
+                      Container(
+                          margin: EdgeInsets.fromLTRB(8, 16, 8, 16),
+                          child: Text('Add New Feedback',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontFamily: 'Open',
+                                color: AppColors.BACKGROUND_COLOR,
+                                fontWeight: FontWeight.w700,
+                              )))
+                    ]),
+                    Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Container(
+                                margin: EdgeInsets.fromLTRB(8, 0, 8, 16),
+                                child: Text(
+                                    'Tell us about your feedback feature or idea that will make our products better ',
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: AppColors.BACKGROUND_COLOR,
+                                      fontFamily: 'Open',
+                                      fontWeight: FontWeight.w400,
+                                    ))),
+                          )
+                        ]),
+                    SizedBox(height: 30),
+                    Container(
+                      margin: EdgeInsets.all(8),
+                      child: TextFormField(
+                        controller: _title,
+                        decoration: InputDecoration(
+                          border: new OutlineInputBorder(
+                            borderRadius: const BorderRadius.all(
+                              const Radius.circular(3),
+                            ),
+                          ),
+                          labelText: 'Title',
+                        ),
                       ),
                     ),
-                    labelText: 'Search',
-                    suffixIcon: CircleAvatar(
-                        radius: 20,
-                        backgroundColor: AppColors.BACKGROUND_COLOR,
-                        child: Icon(Icons.search)),
-                  ),
+                    Container(
+                      margin: EdgeInsets.all(8),
+                      child: TextFormField(
+                        controller: _category,
+                        decoration: InputDecoration(
+                          border: new OutlineInputBorder(
+                            borderRadius: const BorderRadius.all(
+                              const Radius.circular(3),
+                            ),
+                          ),
+                          labelText: 'Category',
+                        ),
+                      ),
+                    ),
+                    Container(
+                        margin: EdgeInsets.all(8),
+                        child: TextFormField(
+                            controller: __description,
+                            maxLines: 5,
+                            decoration: InputDecoration(
+                              border: new OutlineInputBorder(
+                                borderRadius: const BorderRadius.all(
+                                  const Radius.circular(3),
+                                ),
+                              ),
+                              labelText: 'Description',
+                            ))),
+                    Container(
+                        margin: EdgeInsets.all(8),
+                        child: DottedBorder(
+                          strokeWidth: 2,
+                          dashPattern: [8, 4],
+                          borderType: BorderType.Rect,
+                          color: Colors.grey,
+                          radius: Radius.circular(3),
+                          padding: EdgeInsets.all(6),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                            child: Container(
+                                height: 80,
+                                width: MediaQuery.of(context).size.width,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(Icons.cloud_upload_sharp,
+                                        color: Colors.grey),
+                                    SizedBox(height: 10),
+                                    Text(
+                                      "Drag and drop files here",
+                                      style: TextStyle(
+                                          color: Colors.grey,
+                                          fontFamily: 'OpenSans'),
+                                    )
+                                  ],
+                                )),
+                          ),
+                        )),
+                    SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                            child: FlatButton(
+                              padding: EdgeInsets.all(16),
+                              onPressed: () {},
+                              child: const Text('Cancel',
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      color: AppColors.BACKGROUND_COLOR,
+                                      fontFamily: 'Open')),
+                              color: AppColors.THEME_COLOR,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                  side: BorderSide(
+                                      color: AppColors.BACKGROUND_COLOR)),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                            child: FlatButton(
+                              padding: EdgeInsets.all(16),
+                              onPressed: () {},
+                              child: const Text('Submit',
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.white,
+                                      fontFamily: 'Open')),
+                              color: AppColors.BACKGROUND_COLOR,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                  side: BorderSide(
+                                      color: AppColors.BACKGROUND_COLOR)),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ]),
                 ),
               ),
-              Row(
-                children: [
-                  Container(
-                      margin: EdgeInsets.fromLTRB(16, 16, 0, 16),
-                      child: Image.asset('assets/images/alert.png')),
-                  Container(
-                      margin: EdgeInsets.fromLTRB(8, 16, 8, 16),
-                      child: Image.asset('assets/images/msg.png')),
-                ],
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Container(
-                  margin: EdgeInsets.all(20),
-                  child: Text(
-                    'FEEDBACK',
-                    style: TextStyle(fontSize: 18, fontFamily: 'Lato'),
-                  )),
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(16, 0, 4, 16),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child: const Text('All',
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: Colors.white,
-                            fontFamily: 'Open')),
-                    color: AppColors.BACKGROUND_COLOR,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+            );
+          });
+    }
+
+    return SingleChildScrollView(
+      child: Container(
+        color: AppColors.THEME_COLOR,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Card(
+                  elevation: 3,
+                  shape: StadiumBorder(
+                      side: BorderSide(color: Colors.transparent)),
+                  child: Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.all(3),
+                    width: MediaQuery.of(context).size.width * .65,
+                    height: 40,
+                    child: TextFormField(
+                      controller: _search,
+                      decoration: InputDecoration(
+                        border: new OutlineInputBorder(
+                          borderRadius: const BorderRadius.all(
+                            const Radius.circular(18.0),
+                          ),
+                        ),
+                        labelText: 'Search',
+                        suffixIcon: CircleAvatar(
+                            radius: 20,
+                            backgroundColor: AppColors.BACKGROUND_COLOR,
+                            child: Icon(Icons.search)),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Flexible(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 4, 16),
-                  padding: EdgeInsets.all(4),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child: const Text('Anything',
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: AppColors.BTN_COLOR,
-                            fontFamily: 'Open')),
-                    color: AppColors.THEME_COLOR,
-                    hoverColor: AppColors.BACKGROUND_COLOR,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        side: BorderSide(color: AppColors.BTN_COLOR)),
-                  ),
+                Row(
+                  children: [
+                    Container(
+                        margin: EdgeInsets.fromLTRB(16, 16, 0, 16),
+                        child: Image.asset('assets/images/alert.png')),
+                    Container(
+                        margin: EdgeInsets.fromLTRB(8, 16, 8, 16),
+                        child: Image.asset('assets/images/msg.png')),
+                  ],
                 ),
-              ),
-              Flexible(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 4, 16),
-                  padding: EdgeInsets.all(4),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child: const Text('Features',
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: AppColors.BTN_COLOR,
-                            fontFamily: 'Open')),
-                    color: AppColors.THEME_COLOR,
-                    hoverColor: AppColors.BACKGROUND_COLOR,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        side: BorderSide(color: AppColors.BTN_COLOR)),
-                  ),
-                ),
-              ),
-              Flexible(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 4, 16),
-                  padding: EdgeInsets.all(4),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child: const Text('Suggestions',
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: AppColors.BTN_COLOR,
-                            fontFamily: 'Open')),
-                    color: AppColors.THEME_COLOR,
-                    hoverColor: AppColors.BACKGROUND_COLOR,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        side: BorderSide(color: AppColors.BTN_COLOR)),
-                  ),
-                ),
-              ),
-              Flexible(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 4, 16),
-                  padding: EdgeInsets.all(4),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child: const Text('Community',
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: AppColors.BTN_COLOR,
-                            fontFamily: 'Open')),
-                    color: AppColors.THEME_COLOR,
-                    hoverColor: AppColors.BACKGROUND_COLOR,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        side: BorderSide(color: AppColors.BTN_COLOR)),
-                  ),
-                ),
-              ),
-              Flexible(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 4, 16),
-                  padding: EdgeInsets.all(4),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child: const Text('Bugs',
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: AppColors.BTN_COLOR,
-                            fontFamily: 'Open')),
-                    color: AppColors.THEME_COLOR,
-                    hoverColor: AppColors.BACKGROUND_COLOR,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        side: BorderSide(color: AppColors.BTN_COLOR)),
-                  ),
-                ),
-              ),
-              Flexible(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 16, 16),
-                  padding: EdgeInsets.all(4),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child: const Text('Services',
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: AppColors.BTN_COLOR,
-                            fontFamily: 'Open')),
-                    color: AppColors.THEME_COLOR,
-                    hoverColor: AppColors.BACKGROUND_COLOR,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        side: BorderSide(color: AppColors.BTN_COLOR)),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                margin: EdgeInsets.fromLTRB(16, 0, 16, 16),
-                child: RaisedButton.icon(
-                  onPressed: () {},
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                  label: Text(
-                    'Add New',
-                    style: TextStyle(
-                        color: AppColors.LIGHT_GREEN,
-                        fontSize: 15,
-                        fontFamily: 'Open'),
-                  ),
-                  icon: Icon(
-                    Icons.add,
-                    color: AppColors.LIGHT_GREEN,
-                  ),
-                  textColor: Colors.white,
-                  color: AppColors.BACKGROUND_COLOR,
-                ),
-              ),
-            ],
-          ),
-          Container(
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (_, int index) => ListFeedbackItems(
-                  this.likesOf[index], this.dislikesOf[index]),
-              itemCount: this.likesOf.length,
+              ],
             ),
-          )
-        ],
+            Row(
+              children: [
+                Container(
+                    margin: EdgeInsets.all(20),
+                    child: Text(
+                      'FEEDBACK',
+                      style: TextStyle(fontSize: 18, fontFamily: 'Lato'),
+                    )),
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Flexible(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(16, 0, 4, 0),
+                    child: FlatButton(
+                      onPressed: () {},
+                      child: const Text('All',
+                          style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.white,
+                              fontFamily: 'Open')),
+                      color: AppColors.BACKGROUND_COLOR,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                    padding: EdgeInsets.all(4),
+                    child: FlatButton(
+                      onPressed: () {},
+                      child: const Text('Anything',
+                          style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black87,
+                              fontFamily: 'Open')),
+                      color: AppColors.THEME_COLOR,
+                      hoverColor: AppColors.BACKGROUND_COLOR,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.black87)),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                    padding: EdgeInsets.all(4),
+                    child: FlatButton(
+                      onPressed: () {},
+                      child: const Text('Features',
+                          style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black87,
+                              fontFamily: 'Open')),
+                      color: AppColors.THEME_COLOR,
+                      hoverColor: AppColors.BACKGROUND_COLOR,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.black87)),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                    padding: EdgeInsets.all(4),
+                    child: FlatButton(
+                      onPressed: () {},
+                      child: const Text('Suggestions',
+                          style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black87,
+                              fontFamily: 'Open')),
+                      color: AppColors.THEME_COLOR,
+                      hoverColor: AppColors.BACKGROUND_COLOR,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.black87)),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                    padding: EdgeInsets.all(4),
+                    child: FlatButton(
+                      onPressed: () {},
+                      child: const Text('Community',
+                          style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black87,
+                              fontFamily: 'Open')),
+                      color: AppColors.THEME_COLOR,
+                      hoverColor: AppColors.BACKGROUND_COLOR,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.black87)),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                    padding: EdgeInsets.all(4),
+                    child: FlatButton(
+                      onPressed: () {},
+                      child: const Text('Bugs',
+                          style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black87,
+                              fontFamily: 'Open')),
+                      color: AppColors.THEME_COLOR,
+                      hoverColor: AppColors.BACKGROUND_COLOR,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.black87)),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 16, 0),
+                    padding: EdgeInsets.all(4),
+                    child: FlatButton(
+                      onPressed: () {},
+                      child: const Text('Services',
+                          style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black87,
+                              fontFamily: 'Open')),
+                      color: AppColors.THEME_COLOR,
+                      hoverColor: AppColors.BACKGROUND_COLOR,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.black87)),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  height: 100,
+                  margin: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                  padding: EdgeInsets.all(32),
+                  child: RaisedButton.icon(
+                    onPressed: () {
+                      customDialog();
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                    label: Text(
+                      'Add New',
+                      style: TextStyle(
+                          color: AppColors.LIGHT_GREEN,
+                          fontSize: 15,
+                          fontFamily: 'Open'),
+                    ),
+                    icon: Icon(
+                      Icons.add,
+                      color: AppColors.LIGHT_GREEN,
+                    ),
+                    textColor: Colors.white,
+                    color: AppColors.BACKGROUND_COLOR,
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (_, int index) => ListFeedbackItems(
+                    this.likesOf[index], this.dislikesOf[index]),
+                itemCount: this.likesOf.length,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -267,80 +449,85 @@ class ListFeedbackItems extends StatelessWidget {
         Liked(
           likes: likes,
         ),
+        SizedBox(
+          width: 10,
+        ),
         Dislike(
           dislikes: dislikes,
         ),
-        Card(
-          elevation: 5,
-          child: Container(
-            height: 125,
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.fromLTRB(8, 4, 8, 4),
-                      child: Text("Custom drag and drop email template sender",
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black)),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.fromLTRB(8, 0, 16, 0),
-                      child: RaisedButton(
-                        onPressed: () {},
-                        child: Text('Suggested',
-                            style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.lightBlueAccent,
-                                fontFamily: 'Open')),
-                        color: AppColors.LIGHT_BLUE,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            side: BorderSide(color: AppColors.BTN_COLOR)),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * .45,
-                      margin: EdgeInsets.fromLTRB(8, 0, 16, 0),
-                      child: Text(
-                          "Mailchimp like feature to create custom email templates using the drag and drop option along with saving templateds",
-                          style: TextStyle(
-                            fontFamily: 'Open',
-                            fontSize: 12,
-                          )),
-                    ),
-                    //Addmsg Image
-                    Image.asset(
-                      'assets/images/chat.png',
-                      width: MediaQuery.of(context).size.width * .03,
-                      height: 30,
-                    ),
-                    SizedBox(
-                      width: 6,
-                    ),
-                    Text(likes.toString(),
+        SizedBox(width: 10),
+        Container(
+          height: 125,
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+              border: Border.all(width: 1, color: Colors.white),
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(15.0))),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.fromLTRB(8, 4, 8, 4),
+                    child: Text("Custom drag and drop email template sender",
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.BACKGROUND_COLOR)),
-                  ],
-                )
-              ],
-            ),
+                            color: Colors.black)),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.fromLTRB(8, 0, 16, 0),
+                    child: FlatButton(
+                      onPressed: () {},
+                      child: Text('Suggested',
+                          style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.lightBlueAccent,
+                              fontFamily: 'Open')),
+                      color: AppColors.LIGHT_BLUE,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          side: BorderSide(color: Colors.transparent)),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * .45,
+                    margin: EdgeInsets.fromLTRB(8, 0, 16, 0),
+                    child: Text(
+                        "Mailchimp like feature to create custom email templates using the drag and drop option along with saving templateds",
+                        style: TextStyle(
+                          fontFamily: 'Open',
+                          fontSize: 12,
+                        )),
+                  ),
+                  //Addmsg Image
+                  Image.asset(
+                    'assets/images/chat.png',
+                    width: MediaQuery.of(context).size.width * .03,
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 6,
+                  ),
+                  Text(likes.toString(),
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.BACKGROUND_COLOR)),
+                ],
+              )
+            ],
           ),
         ),
       ]),
@@ -374,8 +561,11 @@ class _LikedState extends State<Liked> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(width: 1, color: Colors.white),
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(15.0))),
       child: Container(
         width: MediaQuery.of(context).size.width * .1,
         height: 125,
@@ -431,8 +621,11 @@ class _DislikeState extends State<Dislike> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(width: 1, color: Colors.white),
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(15.0))),
       child: Container(
         width: MediaQuery.of(context).size.width * .1,
         height: 125,

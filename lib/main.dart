@@ -109,7 +109,20 @@ class MenuPage extends StatelessWidget {
                           Navigator.pushNamed(context, '/clients');
                         },
                       ),
-                    )
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * .5,
+                    ),
+                    Container(
+                      width: 200,
+                      child: ListTile(
+                        leading: Icon(Icons.account_circle, color: Colors.grey),
+                        title: Text(
+                          'Mike',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
