@@ -10,7 +10,6 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
-    final isSelected = <bool>[false, false, false];
     return Scaffold(
       body: SafeArea(
         child: Row(
@@ -23,7 +22,6 @@ class _AccountPageState extends State<AccountPage> {
             Column(
               children: <Widget>[
                 SearchBar(),
-                
                 Container(
                     margin: EdgeInsets.all(32),
                     child: Text(

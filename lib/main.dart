@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/sales': (context) => SalesPage(),
         '/rentals': (context) => RentalsPage(),
         '/clients': (context) => ClientsPage(),
+ 
       },
     );
   }
@@ -140,7 +141,6 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 3,
       child: Container(
         height: MediaQuery.of(context).size.height,
         color: AppColors.BACKGROUND_COLOR,
@@ -218,7 +218,17 @@ class Menu extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 260,
+              height: MediaQuery.of(context).size.height * .5,
+            ),
+            Container(
+              width: 200,
+              child: ListTile(
+                leading: Icon(Icons.account_circle, color: Colors.grey),
+                title: Text(
+                  'Mike',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
             )
           ],
         ),
