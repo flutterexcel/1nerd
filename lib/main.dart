@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
         '/sales': (context) => SalesPage(),
         '/rentals': (context) => RentalsPage(),
         '/clients': (context) => ClientsPage(),
- 
       },
     );
   }
@@ -45,11 +44,12 @@ class MenuPage extends StatelessWidget {
                       child: Text(
                         '1NERD',
                         style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 30,
-                            fontFamily: 'Passion',
-                            fontStyle: FontStyle.italic,
-                            letterSpacing: 1),
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontFamily: 'Passion',
+                          fontStyle: FontStyle.italic,
+                          letterSpacing: 1,
+                        ),
                       ),
                     ),
                     SizedBox(height: 20),
@@ -57,10 +57,12 @@ class MenuPage extends StatelessWidget {
                       width: 200,
                       child: ListTile(
                         leading: Icon(Icons.apps, color: Colors.white),
-                        title: Text(
-                          'Account',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                        title: MediaQuery.of(context).size.width < 500
+                            ? Text('')
+                            : Text(
+                                'Account',
+                                style: TextStyle(color: Colors.white),
+                              ),
                         onTap: () {
                           Navigator.pushNamed(context, '/account');
                         },
@@ -73,10 +75,12 @@ class MenuPage extends StatelessWidget {
                           Icons.home,
                           color: Colors.white,
                         ),
-                        title: Text(
-                          'Sales',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                        title: MediaQuery.of(context).size.width < 500
+                            ? Text('')
+                            : Text(
+                                'Sales',
+                                style: TextStyle(color: Colors.white),
+                              ),
                         onTap: () {
                           Navigator.pushNamed(context, '/sales');
                         },
@@ -86,10 +90,12 @@ class MenuPage extends StatelessWidget {
                       width: 200,
                       child: ListTile(
                         leading: Icon(Icons.location_city, color: Colors.white),
-                        title: Text(
-                          'Rentals',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                        title: MediaQuery.of(context).size.width < 500
+                            ? Text('')
+                            : Text(
+                                'Rentals',
+                                style: TextStyle(color: Colors.white),
+                              ),
                         onTap: () {
                           Navigator.pushNamed(context, '/rentals');
                         },
@@ -102,10 +108,12 @@ class MenuPage extends StatelessWidget {
                           Icons.person,
                           color: Colors.white,
                         ),
-                        title: Text(
-                          'Clients',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                        title: MediaQuery.of(context).size.width < 500
+                            ? Text('')
+                            : Text(
+                                'Clients',
+                                style: TextStyle(color: Colors.white),
+                              ),
                         onTap: () {
                           Navigator.pushNamed(context, '/clients');
                         },
@@ -118,10 +126,12 @@ class MenuPage extends StatelessWidget {
                       width: 200,
                       child: ListTile(
                         leading: Icon(Icons.account_circle, color: Colors.grey),
-                        title: Text(
-                          'Mike',
-                          style: TextStyle(color: Colors.grey),
-                        ),
+                        title: MediaQuery.of(context).size.width < 500
+                            ? Text('')
+                            : Text(
+                                'Mike',
+                                style: TextStyle(color: Colors.grey),
+                              ),
                       ),
                     ),
                   ],
@@ -163,10 +173,12 @@ class Menu extends StatelessWidget {
               width: 200,
               child: ListTile(
                 leading: Icon(Icons.apps, color: Colors.white),
-                title: Text(
-                  'Account',
-                  style: TextStyle(color: Colors.white),
-                ),
+                title: MediaQuery.of(context).size.width < 500
+                    ? Text('')
+                    : Text(
+                        'Account',
+                        style: TextStyle(color: Colors.white),
+                      ),
                 onTap: () {
                   Navigator.pushNamed(context, '/account');
                 },
@@ -179,10 +191,12 @@ class Menu extends StatelessWidget {
                   Icons.home,
                   color: Colors.white,
                 ),
-                title: Text(
-                  'Sales',
-                  style: TextStyle(color: Colors.white),
-                ),
+                title: MediaQuery.of(context).size.width < 500
+                    ? Text('')
+                    : Text(
+                        'Sales',
+                        style: TextStyle(color: Colors.white),
+                      ),
                 onTap: () {
                   Navigator.pushNamed(context, '/sales');
                 },
@@ -192,10 +206,12 @@ class Menu extends StatelessWidget {
               width: 200,
               child: ListTile(
                 leading: Icon(Icons.location_city, color: Colors.white),
-                title: Text(
-                  'Rentals',
-                  style: TextStyle(color: Colors.white),
-                ),
+                title: MediaQuery.of(context).size.width < 500
+                    ? Text('')
+                    : Text(
+                        'Rentals',
+                        style: TextStyle(color: Colors.white),
+                      ),
                 onTap: () {
                   Navigator.pushNamed(context, '/rentals');
                 },
@@ -208,10 +224,12 @@ class Menu extends StatelessWidget {
                   Icons.person,
                   color: Colors.white,
                 ),
-                title: Text(
-                  'Clients',
-                  style: TextStyle(color: Colors.white),
-                ),
+                title: MediaQuery.of(context).size.width < 500
+                    ? Text('')
+                    : Text(
+                        'Clients',
+                        style: TextStyle(color: Colors.white),
+                      ),
                 onTap: () {
                   Navigator.pushNamed(context, '/clients');
                 },
@@ -224,13 +242,28 @@ class Menu extends StatelessWidget {
               width: 200,
               child: ListTile(
                 leading: Icon(Icons.account_circle, color: Colors.grey),
-                title: Text(
-                  'Mike',
-                  style: TextStyle(color: Colors.grey),
-                ),
+                title: MediaQuery.of(context).size.width < 500
+                    ? Text('')
+                    : Text(
+                        'Mike',
+                        style: TextStyle(color: Colors.grey),
+                      ),
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class MobileMenuPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          child: Text('This is Mobile Page'),
         ),
       ),
     );
