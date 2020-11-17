@@ -46,7 +46,7 @@ class ProfileMenu extends StatelessWidget {
                   'Company Profile',
                   style: TextStyle(
                       fontSize: 13,
-                      fontFamily: 'Lato',
+                      fontFamily: 'Open',
                       color: AppColors.BACKGROUND_COLOR),
                 )),
           ),
@@ -63,7 +63,7 @@ class ProfileMenu extends StatelessWidget {
                   'Company Agent',
                   style: TextStyle(
                       fontSize: 13,
-                      fontFamily: 'Open',
+                      fontFamily: 'Lato',
                       color: AppColors.BACKGROUND_COLOR),
                 )),
           ),
