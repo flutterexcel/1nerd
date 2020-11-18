@@ -9,7 +9,7 @@ class ProfileMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 16, right: 16),
-      height: MediaQuery.of(context).size.height * .84,
+      height: MediaQuery.of(context).size.height - 150,
       padding: EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20), color: Colors.white),
