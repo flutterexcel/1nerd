@@ -75,7 +75,9 @@ class PaymentHistory extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.height * .19,
+          height: MediaQuery.of(context).size.height < 600
+              ? 40
+              : MediaQuery.of(context).size.height * .19,
         )
       ],
     );

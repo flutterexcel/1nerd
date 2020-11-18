@@ -28,16 +28,20 @@ class RentalsPage extends StatelessWidget {
                   Row(
                     children: [
                       ProfileMenu(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Heading(),
-                          OneNerdPlan(),
-                          SizedBox(height: 20),
-                          PaymentDetails(),
-                          SizedBox(
-                              height: MediaQuery.of(context).size.height * .23)
-                        ],
+                      SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Heading(),
+                            OneNerdPlan(),
+                            SizedBox(height: 20),
+                            PaymentDetails(),
+                            SizedBox(
+                                height: MediaQuery.of(context).size.height < 600
+                                    ? 20
+                                    : MediaQuery.of(context).size.height * .23)
+                          ],
+                        ),
                       ),
                       PaymentHistory(),
                     ],
