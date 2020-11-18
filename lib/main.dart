@@ -3,6 +3,7 @@ import 'package:feedback/screens/account/account.dart';
 import 'package:feedback/screens/clients/clients.dart';
 import 'package:feedback/screens/rentals/rentals.dart';
 import 'package:feedback/screens/sales/sales.dart';
+import 'package:feedback/widgets/search.dart';
 import 'package:flutter/material.dart';
 import 'package:feedback/screens/feedback.dart';
 
@@ -16,7 +17,9 @@ class MyApp extends StatelessWidget {
       // home: MenuPage(),
       initialRoute: '/',
       routes: {
-        '/': (context) => MenuPage(),
+        '/': (context) => MediaQuery.of(context).size.width < 500
+            ? MobileMenuPage()
+            : MenuPage(),
         '/account': (context) => AccountPage(),
         '/sales': (context) => SalesPage(),
         '/rentals': (context) => RentalsPage(),
@@ -220,10 +223,7 @@ class Menu extends StatelessWidget {
             Container(
               width: 200,
               child: ListTile(
-                leading: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
+                leading: Icon(Icons.person, color: Colors.white),
                 title: MediaQuery.of(context).size.width < 500
                     ? Text('')
                     : Text(
@@ -262,10 +262,48 @@ class MobileMenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          child: Text('This is Mobile Page'),
+          child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              color: AppColors.BACKGROUND_COLOR,
+              margin: EdgeInsets.fromLTRB(8, 8, 8, 8),
+              padding: EdgeInsets.only(bottom: 8),
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.fromLTRB(8, 8, 8, 8),
+                    child: Text(
+                      '1NERD',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontFamily: 'Passion',
+                        fontStyle: FontStyle.italic,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InkWell(
+                          onTap: () => Navigator.pushNamed(context, '/account'),
+                          child: Icon(Icons.apps, color: Colors.white)),
+                      InkWell(child: Icon(Icons.home, color: Colors.white)),
+                      InkWell(
+                          child:
+                              Icon(Icons.location_city, color: Colors.white)),
+                      InkWell(child: Icon(Icons.person, color: Colors.white)),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Clientfeedback(),
+          ],
         ),
-      ),
+      )),
     );
   }
 }
