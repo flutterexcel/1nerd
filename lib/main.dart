@@ -292,6 +292,7 @@ class MobileMenuPage extends StatelessWidget {
                           child: Icon(Icons.apps, color: Colors.white)),
                       InkWell(child: Icon(Icons.home, color: Colors.white)),
                       InkWell(
+                          onTap: () => Navigator.pushNamed(context, '/rentals'),
                           child:
                               Icon(Icons.location_city, color: Colors.white)),
                       InkWell(child: Icon(Icons.person, color: Colors.white)),
