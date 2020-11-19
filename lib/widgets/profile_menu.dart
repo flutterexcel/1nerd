@@ -3,6 +3,7 @@ import 'package:feedback/screens/agents/agents.dart';
 import 'package:feedback/screens/company_profile/company_profile.dart';
 import 'package:feedback/screens/personal_profile/personal_profile.dart';
 import 'package:feedback/widgets/agent_widgets/agent_widgets.dart';
+import 'package:feedback/widgets/personal_profile/personal_profile.dart';
 import 'package:flutter/material.dart';
 
 class ProfileMenu extends StatelessWidget {
@@ -21,7 +22,12 @@ class ProfileMenu extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PersonalProfile()),
+                MaterialPageRoute(
+                    builder: (context) =>
+                        (MediaQuery.of(context).size.width < 1000 ||
+                                MediaQuery.of(context).size.height < 650)
+                            ? ResponsiveProfile()
+                            : PersonalProfile()),
               );
             },
             child: Container(
@@ -57,7 +63,7 @@ class ProfileMenu extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        MediaQuery.of(context).size.width < 1050
+                        MediaQuery.of(context).size.width < 1000
                             ? AgentMobileView()
                             : CompanyAgents()),
               );
