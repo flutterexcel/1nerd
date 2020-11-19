@@ -2,6 +2,7 @@ import 'package:feedback/resources/app_colors.dart';
 import 'package:feedback/screens/agents/agents.dart';
 import 'package:feedback/screens/company_profile/company_profile.dart';
 import 'package:feedback/screens/personal_profile/personal_profile.dart';
+import 'package:feedback/widgets/agent_widgets/agent_widgets.dart';
 import 'package:flutter/material.dart';
 
 class MobileProfileMenu extends StatelessWidget {
@@ -57,8 +58,13 @@ class MobileProfileMenu extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CompanyAgents()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              MediaQuery.of(context).size.width < 1000
+                                  ? AgentMobileView()
+                                  : CompanyAgents()));
                 },
                 child: Container(
                     margin: EdgeInsets.fromLTRB(8, 8, 8, 0),

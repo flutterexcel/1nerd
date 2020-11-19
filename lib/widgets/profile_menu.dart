@@ -2,6 +2,7 @@ import 'package:feedback/resources/app_colors.dart';
 import 'package:feedback/screens/agents/agents.dart';
 import 'package:feedback/screens/company_profile/company_profile.dart';
 import 'package:feedback/screens/personal_profile/personal_profile.dart';
+import 'package:feedback/widgets/agent_widgets/agent_widgets.dart';
 import 'package:flutter/material.dart';
 
 class ProfileMenu extends StatelessWidget {
@@ -54,7 +55,11 @@ class ProfileMenu extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CompanyAgents()),
+                MaterialPageRoute(
+                    builder: (context) =>
+                        MediaQuery.of(context).size.width < 1050
+                            ? AgentMobileView()
+                            : CompanyAgents()),
               );
             },
             child: Container(
