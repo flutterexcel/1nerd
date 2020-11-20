@@ -67,7 +67,6 @@ class _CompanyAgentsState extends State<CompanyAgents> {
                           Row(
                             children: [
                               AgentList(),
-                              AgentList(),
                               Container(
                                 width: 140,
                                 height: 180,
@@ -188,7 +187,7 @@ class _CompanyAgentsState extends State<CompanyAgents> {
                             ],
                           ),
                           SizedBox(
-                              height: MediaQuery.of(context).size.height - 320)
+                              height: MediaQuery.of(context).size.height - 340)
                         ],
                       ),
                     ],

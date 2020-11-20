@@ -2,6 +2,31 @@ import 'package:feedback/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AgentList extends StatelessWidget {
+  List<String> listOf = [
+    "Smriti",
+    // "Renu",
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 170,
+      height: 210,
+      margin: EdgeInsets.all(6),
+      padding: EdgeInsets.all(6),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemBuilder: (_, int index) => listDataItems(this.listOf[index]),
+        itemCount: this.listOf.length,
+      ),
+    );
+  }
+}
+
+class listDataItems extends StatelessWidget {
+  String itemName;
+  listDataItems(this.itemName);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +54,7 @@ class AgentList extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            'Anna Smith',
+            itemName,
             style: TextStyle(
                 fontSize: 15,
                 color: AppColors.BACKGROUND_COLOR,
