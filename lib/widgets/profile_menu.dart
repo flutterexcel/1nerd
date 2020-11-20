@@ -48,7 +48,7 @@ class ProfileMenu extends StatelessWidget {
                 MaterialPageRoute(
                     builder: (context) =>
                         (MediaQuery.of(context).size.width < 1000 ||
-                                MediaQuery.of(context).size.height < 650)
+                                MediaQuery.of(context).size.height < 600)
                             ? ResponsiveCompanyProfile()
                             : CompanyProfile()),
               );
@@ -69,7 +69,8 @@ class ProfileMenu extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        MediaQuery.of(context).size.width < 1000
+                        (MediaQuery.of(context).size.width < 1000 ||
+                                MediaQuery.of(context).size.height < 650)
                             ? AgentMobileView()
                             : CompanyAgents()),
               );

@@ -10,15 +10,17 @@ class AgentMobileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.THEME_COLOR,
-      body: Column(
-        children: <Widget>[
-          MobileMenu(),
-          SearchBar(),
-          MobileProfileMenu(),
-          Row(
-            children: <Widget>[AgentList(), AddNew()],
-          )
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            MobileMenu(),
+            SearchBar(),
+            MobileProfileMenu(),
+            Row(
+              children: <Widget>[AgentList(), AddNew()],
+            )
+          ],
+        ),
       ),
     );
   }

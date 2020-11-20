@@ -14,7 +14,6 @@ class CompanyAgents extends StatefulWidget {
 
 class _CompanyAgentsState extends State<CompanyAgents> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   final _firstName = TextEditingController();
   final _lastName = TextEditingController();
   final _title = TextEditingController();
