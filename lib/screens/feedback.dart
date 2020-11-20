@@ -248,7 +248,7 @@ class _FeedbackState extends State<Clientfeedback> {
             Row(
               children: [
                 Container(
-                    margin: MediaQuery.of(context).size.width < 500
+                    margin: MediaQuery.of(context).size.width < 1050
                         ? EdgeInsets.fromLTRB(16, 8, 16, 8)
                         : EdgeInsets.all(20),
                     child: Text(
@@ -257,7 +257,7 @@ class _FeedbackState extends State<Clientfeedback> {
                     )),
               ],
             ),
-            MediaQuery.of(context).size.width < 500
+            MediaQuery.of(context).size.width < 1050
                 ? HeadingFeedback()
                 : Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -399,9 +399,9 @@ class _FeedbackState extends State<Clientfeedback> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.width < 500 ? 70 : 100,
+                  height: MediaQuery.of(context).size.width < 1050 ? 70 : 100,
                   margin: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  padding: MediaQuery.of(context).size.width < 500
+                  padding: MediaQuery.of(context).size.width < 1050
                       ? EdgeInsets.all(16)
                       : EdgeInsets.all(32),
                   child: RaisedButton.icon(
@@ -458,18 +458,18 @@ class ListFeedbackItems extends StatelessWidget {
           likes: likes,
         ),
         SizedBox(
-          width: MediaQuery.of(context).size.width < 500 ? 5 : 10,
+          width: MediaQuery.of(context).size.width < 1050 ? 5 : 10,
         ),
         Dislike(
           dislikes: dislikes,
         ),
-        SizedBox(width: MediaQuery.of(context).size.width < 500 ? 5 : 10),
+        SizedBox(width: MediaQuery.of(context).size.width < 1050 ? 5 : 10),
         Container(
-          height: MediaQuery.of(context).size.width < 500 ? 200 : 125,
+          height: MediaQuery.of(context).size.width < 1050 ? 200 : 125,
           // width: MediaQuery.of(context).size.width < 500
           //     ? MediaQuery.of(context).size.width - 120
           //     : MediaQuery.of(context).size.width * .6,
-          padding: MediaQuery.of(context).size.width < 500
+          padding: MediaQuery.of(context).size.width < 1050
               ? EdgeInsets.all(8)
               : EdgeInsets.all(16),
           decoration: BoxDecoration(
@@ -483,7 +483,7 @@ class ListFeedbackItems extends StatelessWidget {
                 children: [
                   Container(
                     margin: EdgeInsets.fromLTRB(8, 4, 4, 4),
-                    child: MediaQuery.of(context).size.width < 500
+                    child: MediaQuery.of(context).size.width < 1050
                         ? Text("Custom drag and drop email template\n sender",
                             style: TextStyle(
                                 fontSize: 12,
@@ -522,7 +522,8 @@ class ListFeedbackItems extends StatelessWidget {
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width * .46,
-                    margin: MediaQuery.of(context).size.width < 500
+                    margin: (MediaQuery.of(context).size.width < 1050 ||
+                            MediaQuery.of(context).size.width < 650)
                         ? EdgeInsets.fromLTRB(8, 0, 4, 0)
                         : EdgeInsets.fromLTRB(8, 0, 16, 0),
                     child: Text(
@@ -535,7 +536,7 @@ class ListFeedbackItems extends StatelessWidget {
                   //Addmsg Image
                   Image.asset(
                     'assets/images/chat.png',
-                    width: MediaQuery.of(context).size.width < 500
+                    width: MediaQuery.of(context).size.width < 1050
                         ? 30
                         : MediaQuery.of(context).size.width * .03,
                     height: 30,
@@ -591,8 +592,8 @@ class _LikedState extends State<Liked> {
           borderRadius: BorderRadius.all(Radius.circular(15.0))),
       child: Container(
         width: MediaQuery.of(context).size.width * .1,
-        height: MediaQuery.of(context).size.width < 500 ? 200 : 125,
-        padding: MediaQuery.of(context).size.width < 500
+        height: MediaQuery.of(context).size.width < 1050 ? 200 : 125,
+        padding: MediaQuery.of(context).size.width < 1050
             ? EdgeInsets.all(4)
             : EdgeInsets.all(16),
         child: Column(
@@ -611,7 +612,8 @@ class _LikedState extends State<Liked> {
             SizedBox(height: 10),
             Text(likes.toString(),
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width < 500 ? 12 : 15,
+                    fontSize:
+                        MediaQuery.of(context).size.width < 1050 ? 12 : 15,
                     fontFamily: 'Lato',
                     color: AppColors.BACKGROUND_COLOR)),
           ],
@@ -654,8 +656,8 @@ class _DislikeState extends State<Dislike> {
           borderRadius: BorderRadius.all(Radius.circular(15.0))),
       child: Container(
         width: MediaQuery.of(context).size.width * .1,
-        height: MediaQuery.of(context).size.width < 500 ? 200 : 125,
-        padding: MediaQuery.of(context).size.width < 500
+        height: MediaQuery.of(context).size.width < 1050 ? 200 : 125,
+        padding: MediaQuery.of(context).size.width < 1050
             ? EdgeInsets.all(4)
             : EdgeInsets.all(16),
         child: Column(
@@ -674,7 +676,8 @@ class _DislikeState extends State<Dislike> {
             SizedBox(height: 10),
             Text(dislikes.toString(),
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width < 500 ? 12 : 15,
+                    fontSize:
+                        MediaQuery.of(context).size.width < 1050 ? 12 : 15,
                     fontFamily: 'Lato',
                     color: AppColors.BACKGROUND_COLOR)),
           ],
