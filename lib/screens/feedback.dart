@@ -466,9 +466,6 @@ class ListFeedbackItems extends StatelessWidget {
         SizedBox(width: MediaQuery.of(context).size.width < 1050 ? 5 : 10),
         Container(
           height: MediaQuery.of(context).size.width < 1050 ? 200 : 125,
-          // width: MediaQuery.of(context).size.width < 500
-          //     ? MediaQuery.of(context).size.width - 120
-          //     : MediaQuery.of(context).size.width * .6,
           padding: MediaQuery.of(context).size.width < 1050
               ? EdgeInsets.all(8)
               : EdgeInsets.all(16),
