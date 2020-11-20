@@ -1,5 +1,6 @@
 import 'package:feedback/main.dart';
-import 'package:feedback/widgets/search.dart';
+import 'package:feedback/resources/app_colors.dart';
+import 'package:feedback/widgets/account_widgets/account_widgets.dart';
 import 'package:flutter/material.dart';
 
 class AccountPage extends StatefulWidget {
@@ -11,27 +12,40 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.THEME_COLOR,
       body: SafeArea(
-        child: Row(
-          children: [
-            Column(
-              children: <Widget>[
-                Menu(),
-              ],
-            ),
-            Column(
-              children: <Widget>[
-                SearchBar(),
-                Container(
-                    margin: EdgeInsets.all(32),
-                    child: Text(
-                      'This is account page',
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                    )),
-              ],
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              MenuHorizontal(),
+              SizedBox(height: 10),
+              AccountType(),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AccountProfileMenu(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Profile(),
+                      Container(
+                        width: MediaQuery.of(context).size.width * .3,
+                        color: Colors.white,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            ProfilePic(),
+                            SizedBox(height: 20),
+                            ProfileDetails(),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
