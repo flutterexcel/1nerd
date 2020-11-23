@@ -1,7 +1,7 @@
 import 'package:feedback/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class Profile extends StatelessWidget {
+class AgentHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,7 +10,7 @@ class Profile extends StatelessWidget {
             ? EdgeInsets.only(left: 16, right: 16, bottom: 8)
             : EdgeInsets.only(right: 16, bottom: 8),
         child: Text(
-          'PROFILE',
+          'MY AGENTS',
           style: TextStyle(
               color: AppColors.BACKGROUND_COLOR,
               fontSize: 16,
