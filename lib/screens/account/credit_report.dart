@@ -1,4 +1,5 @@
 import 'package:feedback/main.dart';
+import 'package:feedback/resources/app_colors.dart';
 import 'package:feedback/widgets/account_widgets/account_widgets.dart';
 import 'package:feedback/widgets/account_widgets/credit_report/credit_report.dart';
 import 'package:feedback/widgets/account_widgets/credit_report/person_credit_report.dart';
@@ -8,6 +9,7 @@ class CreditReport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.THEME_COLOR,
       body: SafeArea(
         child: Column(
           children: <Widget>[
