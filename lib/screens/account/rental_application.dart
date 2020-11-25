@@ -1,11 +1,11 @@
-import 'package:feedback/main.dart';
 import 'package:feedback/resources/app_colors.dart';
-import 'package:feedback/widgets/account_widgets/account_widgets.dart';
-import 'package:feedback/widgets/account_widgets/credit_report/credit_report.dart';
-import 'package:feedback/widgets/account_widgets/credit_report/person_credit_report.dart';
+import 'package:feedback/widgets/account_widgets/account_profile_menu.dart';
+import 'package:feedback/widgets/account_widgets/account_type.dart';
+import 'package:feedback/widgets/account_widgets/rental_application/rental_application.dart';
 import 'package:flutter/material.dart';
+import 'package:feedback/main.dart';
 
-class CreditReport extends StatelessWidget {
+class RentalApplication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,15 +24,16 @@ class CreditReport extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      CreditHeading(),
+                      RentalAppliHeading(),
                       Container(
-                        width: MediaQuery.of(context).size.width * .3,
+                        width: MediaQuery.of(context).size.width - 200,
                         color: Colors.white,
                         padding: EdgeInsets.only(top: 10),
-                        child: PersonCreditReport(),
-                      )
+                        child: RentailDetails(),
+                      ),
+                      SizedBox(height: 50)
                     ],
-                  ),
+                  )
                 ],
               )
             ],
