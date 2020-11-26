@@ -12,25 +12,30 @@ class MyDocuments extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.THEME_COLOR,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            MenuHorizontal(),
-            SizedBox(height: 10),
-            AccountType(),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                AccountProfileMenu(),
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      DocumentHeading(),
-                      Documents(),
-                      UploadedDocuments(),
-                    ])
-              ],
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              MenuHorizontal(),
+              SizedBox(height: 10),
+              AccountType(),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  AccountProfileMenu(),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        DocumentHeading(),
+                        Documents(),
+                        UploadedDocuments(),
+                        SizedBox(height: 30),
+                        RequestedDocuments(),
+                        BrowseFiles(),
+                      ])
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
