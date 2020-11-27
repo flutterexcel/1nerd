@@ -31,6 +31,7 @@ class MyDocuments extends StatelessWidget {
                         SizedBox(height: 30),
                         RequestedDocuments(),
                         BrowseFiles(),
+                        SizedBox(height: 30)
                       ])
                 ],
               )

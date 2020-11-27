@@ -6,8 +6,15 @@ class UploadedDocuments extends StatelessWidget {
     return Container(
       height: 200.0,
       color: Colors.white,
-      width: MediaQuery.of(context).size.width - 200,
+      width: (MediaQuery.of(context).size.width < 850 ||
+              MediaQuery.of(context).size.height < 600)
+          ? MediaQuery.of(context).size.width
+          : MediaQuery.of(context).size.width - 200,
       padding: EdgeInsets.only(left: 16),
+      margin: (MediaQuery.of(context).size.width < 850 ||
+              MediaQuery.of(context).size.height < 600)
+          ? EdgeInsets.only(left: 16, right: 16)
+          : EdgeInsets.all(0),
       child: ListView.builder(
         physics: ClampingScrollPhysics(),
         shrinkWrap: true,
