@@ -10,5 +10,5 @@ class AppColors {
   static const Color LIGHT_BLACK = Colors.black87;
   static const Color TXT_DISABLE = Color(0xffEAEAEA);
   static const Color OFFLINE = Color(0xffCDCDCD); // CDD7DF
-  
+  static const Color LIGHT_PINK = Color(0xffF9D8E2); //F9D8E2
 }
