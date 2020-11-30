@@ -2,6 +2,9 @@ import 'package:feedback/resources/app_colors.dart';
 import 'package:feedback/screens/agents/agents.dart';
 import 'package:feedback/screens/company_profile/company_profile.dart';
 import 'package:feedback/screens/personal_profile/personal_profile.dart';
+import 'package:feedback/widgets/agent_widgets/agent_widgets.dart';
+import 'package:feedback/widgets/company_profile/company_profile.dart';
+import 'package:feedback/widgets/personal_profile/personal_profile.dart';
 import 'package:flutter/material.dart';
 
 class ProfileMenu extends StatelessWidget {
@@ -9,7 +12,7 @@ class ProfileMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 16, right: 16),
-      height: MediaQuery.of(context).size.height * .84,
+      height: MediaQuery.of(context).size.height - 150,
       padding: EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20), color: Colors.white),
@@ -20,7 +23,12 @@ class ProfileMenu extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PersonalProfile()),
+                MaterialPageRoute(
+                    builder: (context) =>
+                        (MediaQuery.of(context).size.width < 1000 ||
+                                MediaQuery.of(context).size.height < 650)
+                            ? ResponsiveProfile()
+                            : PersonalProfile()),
               );
             },
             child: Container(
@@ -37,7 +45,12 @@ class ProfileMenu extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CompanyProfile()),
+                MaterialPageRoute(
+                    builder: (context) =>
+                        (MediaQuery.of(context).size.width < 1000 ||
+                                MediaQuery.of(context).size.height < 600)
+                            ? ResponsiveCompanyProfile()
+                            : CompanyProfile()),
               );
             },
             child: Container(
@@ -54,7 +67,12 @@ class ProfileMenu extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CompanyAgents()),
+                MaterialPageRoute(
+                    builder: (context) =>
+                        (MediaQuery.of(context).size.width < 1000 ||
+                                MediaQuery.of(context).size.height < 650)
+                            ? AgentMobileView()
+                            : CompanyAgents()),
               );
             },
             child: Container(

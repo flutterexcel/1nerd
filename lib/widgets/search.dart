@@ -9,12 +9,8 @@ class SearchBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          width: MediaQuery.of(context).size.width < 500
-              ? MediaQuery.of(context).size.width * .8
-              : MediaQuery.of(context).size.width * .6,
-          margin: MediaQuery.of(context).size.width < 500
-              ? EdgeInsets.only(left: 8, top: 8, right: 16)
-              : EdgeInsets.only(left: 16, top: 16, right: 70),
+          width: MediaQuery.of(context).size.width * .6,
+          margin: EdgeInsets.only(left: 16, top: 16, right: 60),
           height: 40,
           child: TextFormField(
             controller: _search,
@@ -36,14 +32,10 @@ class SearchBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
-                margin: MediaQuery.of(context).size.width < 500
-                    ? EdgeInsets.fromLTRB(8, 8, 0, 8)
-                    : EdgeInsets.fromLTRB(8, 16, 0, 16),
+                margin: EdgeInsets.fromLTRB(8, 16, 0, 16),
                 child: Image.asset('assets/images/alert.png')),
             Container(
-                margin: MediaQuery.of(context).size.width < 500
-                    ? EdgeInsets.fromLTRB(8, 8, 8, 8)
-                    : EdgeInsets.fromLTRB(16, 16, 16, 16),
+                margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
                 child: Image.asset('assets/images/msg.png')),
           ],
         ),

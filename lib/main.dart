@@ -3,6 +3,7 @@ import 'package:feedback/screens/account/account.dart';
 import 'package:feedback/screens/clients/clients.dart';
 import 'package:feedback/screens/rentals/rentals.dart';
 import 'package:feedback/screens/sales/sales.dart';
+import 'package:feedback/widgets/rentals/rentals.dart';
 import 'package:feedback/widgets/search.dart';
 import 'package:flutter/material.dart';
 import 'package:feedback/screens/feedback.dart';
@@ -22,7 +23,9 @@ class MyApp extends StatelessWidget {
             : MenuPage(),
         '/account': (context) => AccountPage(),
         '/sales': (context) => SalesPage(),
-        '/rentals': (context) => RentalsPage(),
+        '/rentals': (context) => MediaQuery.of(context).size.width < 1050
+            ? ResponsiveBilling()
+            : RentalsPage(),
         '/clients': (context) => ClientsPage(),
       },
     );
@@ -236,7 +239,7 @@ class Menu extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * .5,
+              height: MediaQuery.of(context).size.height - 350,
             ),
             Container(
               width: 200,
@@ -292,6 +295,7 @@ class MobileMenuPage extends StatelessWidget {
                           child: Icon(Icons.apps, color: Colors.white)),
                       InkWell(child: Icon(Icons.home, color: Colors.white)),
                       InkWell(
+                          onTap: () => Navigator.pushNamed(context, '/rentals'),
                           child:
                               Icon(Icons.location_city, color: Colors.white)),
                       InkWell(child: Icon(Icons.person, color: Colors.white)),
@@ -305,5 +309,53 @@ class MobileMenuPage extends StatelessWidget {
         ),
       )),
     );
+  }
+}
+
+class MobileMenu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+        child: SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Container(
+            color: AppColors.BACKGROUND_COLOR,
+            margin: EdgeInsets.fromLTRB(8, 8, 8, 8),
+            padding: EdgeInsets.only(bottom: 8),
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: Text(
+                    '1NERD',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontFamily: 'Passion',
+                      fontStyle: FontStyle.italic,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    InkWell(
+                        onTap: () => Navigator.pushNamed(context, '/account'),
+                        child: Icon(Icons.apps, color: Colors.white)),
+                    InkWell(child: Icon(Icons.home, color: Colors.white)),
+                    InkWell(
+                        onTap: () => Navigator.pushNamed(context, '/rentals'),
+                        child: Icon(Icons.location_city, color: Colors.white)),
+                    InkWell(child: Icon(Icons.person, color: Colors.white)),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ));
   }
 }
