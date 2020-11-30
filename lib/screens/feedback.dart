@@ -1,4 +1,5 @@
 import 'package:feedback/resources/app_colors.dart';
+import 'package:feedback/widgets/res_feedback/res_feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_custom_dialog/flutter_custom_dialog.dart';
@@ -247,156 +248,162 @@ class _FeedbackState extends State<Clientfeedback> {
             Row(
               children: [
                 Container(
-                    margin: EdgeInsets.all(20),
+                    margin: MediaQuery.of(context).size.width < 1050
+                        ? EdgeInsets.fromLTRB(16, 8, 16, 8)
+                        : EdgeInsets.all(20),
                     child: Text(
                       'FEEDBACK',
                       style: TextStyle(fontSize: 18, fontFamily: 'Lato'),
                     )),
               ],
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Flexible(
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(16, 0, 4, 0),
-                    child: FlatButton(
-                      onPressed: () {},
-                      child: const Text('All',
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.white,
-                              fontFamily: 'Open')),
-                      color: AppColors.BACKGROUND_COLOR,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+            MediaQuery.of(context).size.width < 1050
+                ? HeadingFeedback()
+                : Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Flexible(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(16, 0, 4, 0),
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: const Text('All',
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.white,
+                                    fontFamily: 'Open')),
+                            color: AppColors.BACKGROUND_COLOR,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
+                      Flexible(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                          padding: EdgeInsets.all(4),
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: const Text('Anything',
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.black87,
+                                    fontFamily: 'Open')),
+                            color: AppColors.THEME_COLOR,
+                            hoverColor: AppColors.BACKGROUND_COLOR,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                side: BorderSide(color: Colors.black87)),
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                          padding: EdgeInsets.all(4),
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: const Text('Features',
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.black87,
+                                    fontFamily: 'Open')),
+                            color: AppColors.THEME_COLOR,
+                            hoverColor: AppColors.BACKGROUND_COLOR,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                side: BorderSide(color: Colors.black87)),
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                          padding: EdgeInsets.all(4),
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: const Text('Suggestions',
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.black87,
+                                    fontFamily: 'Open')),
+                            color: AppColors.THEME_COLOR,
+                            hoverColor: AppColors.BACKGROUND_COLOR,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                side: BorderSide(color: Colors.black87)),
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                          padding: EdgeInsets.all(4),
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: const Text('Community',
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.black87,
+                                    fontFamily: 'Open')),
+                            color: AppColors.THEME_COLOR,
+                            hoverColor: AppColors.BACKGROUND_COLOR,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                side: BorderSide(color: Colors.black87)),
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                          padding: EdgeInsets.all(4),
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: const Text('Bugs',
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.black87,
+                                    fontFamily: 'Open')),
+                            color: AppColors.THEME_COLOR,
+                            hoverColor: AppColors.BACKGROUND_COLOR,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                side: BorderSide(color: Colors.black87)),
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 16, 0),
+                          padding: EdgeInsets.all(4),
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: const Text('Services',
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.black87,
+                                    fontFamily: 'Open')),
+                            color: AppColors.THEME_COLOR,
+                            hoverColor: AppColors.BACKGROUND_COLOR,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                side: BorderSide(color: Colors.black87)),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                Flexible(
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                    padding: EdgeInsets.all(4),
-                    child: FlatButton(
-                      onPressed: () {},
-                      child: const Text('Anything',
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black87,
-                              fontFamily: 'Open')),
-                      color: AppColors.THEME_COLOR,
-                      hoverColor: AppColors.BACKGROUND_COLOR,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          side: BorderSide(color: Colors.black87)),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                    padding: EdgeInsets.all(4),
-                    child: FlatButton(
-                      onPressed: () {},
-                      child: const Text('Features',
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black87,
-                              fontFamily: 'Open')),
-                      color: AppColors.THEME_COLOR,
-                      hoverColor: AppColors.BACKGROUND_COLOR,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          side: BorderSide(color: Colors.black87)),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                    padding: EdgeInsets.all(4),
-                    child: FlatButton(
-                      onPressed: () {},
-                      child: const Text('Suggestions',
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black87,
-                              fontFamily: 'Open')),
-                      color: AppColors.THEME_COLOR,
-                      hoverColor: AppColors.BACKGROUND_COLOR,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          side: BorderSide(color: Colors.black87)),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                    padding: EdgeInsets.all(4),
-                    child: FlatButton(
-                      onPressed: () {},
-                      child: const Text('Community',
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black87,
-                              fontFamily: 'Open')),
-                      color: AppColors.THEME_COLOR,
-                      hoverColor: AppColors.BACKGROUND_COLOR,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          side: BorderSide(color: Colors.black87)),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                    padding: EdgeInsets.all(4),
-                    child: FlatButton(
-                      onPressed: () {},
-                      child: const Text('Bugs',
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black87,
-                              fontFamily: 'Open')),
-                      color: AppColors.THEME_COLOR,
-                      hoverColor: AppColors.BACKGROUND_COLOR,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          side: BorderSide(color: Colors.black87)),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 16, 0),
-                    padding: EdgeInsets.all(4),
-                    child: FlatButton(
-                      onPressed: () {},
-                      child: const Text('Services',
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black87,
-                              fontFamily: 'Open')),
-                      color: AppColors.THEME_COLOR,
-                      hoverColor: AppColors.BACKGROUND_COLOR,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          side: BorderSide(color: Colors.black87)),
-                    ),
-                  ),
-                ),
-              ],
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  height: 100,
+                  height: MediaQuery.of(context).size.width < 1050 ? 70 : 100,
                   margin: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  padding: EdgeInsets.all(32),
+                  padding: MediaQuery.of(context).size.width < 1050
+                      ? EdgeInsets.all(16)
+                      : EdgeInsets.all(32),
                   child: RaisedButton.icon(
                     onPressed: () {
                       customDialog();
@@ -451,15 +458,17 @@ class ListFeedbackItems extends StatelessWidget {
           likes: likes,
         ),
         SizedBox(
-          width: 10,
+          width: MediaQuery.of(context).size.width < 1050 ? 5 : 10,
         ),
         Dislike(
           dislikes: dislikes,
         ),
-        SizedBox(width: 10),
+        SizedBox(width: MediaQuery.of(context).size.width < 1050 ? 5 : 10),
         Container(
-          height: 125,
-          padding: EdgeInsets.all(16),
+          height: MediaQuery.of(context).size.width < 1050 ? 200 : 125,
+          padding: MediaQuery.of(context).size.width < 1050
+              ? EdgeInsets.all(8)
+              : EdgeInsets.all(16),
           decoration: BoxDecoration(
               border: Border.all(width: 1, color: Colors.white),
               color: Colors.white,
@@ -470,19 +479,25 @@ class ListFeedbackItems extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    margin: EdgeInsets.fromLTRB(8, 4, 8, 4),
-                    child: Text("Custom drag and drop email template sender",
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black)),
+                    margin: EdgeInsets.fromLTRB(8, 4, 4, 4),
+                    child: MediaQuery.of(context).size.width < 1050
+                        ? Text("Custom drag and drop email template\n sender",
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black))
+                        : Text("Custom drag and drop email template sender",
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black)),
                   ),
                 ],
               ),
               Row(
                 children: [
                   Container(
-                    margin: EdgeInsets.fromLTRB(8, 0, 16, 0),
+                    margin: EdgeInsets.fromLTRB(8, 0, 5, 0),
                     child: FlatButton(
                       onPressed: () {},
                       child: Text('Suggested',
@@ -503,8 +518,11 @@ class ListFeedbackItems extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width * .45,
-                    margin: EdgeInsets.fromLTRB(8, 0, 16, 0),
+                    width: MediaQuery.of(context).size.width * .46,
+                    margin: (MediaQuery.of(context).size.width < 1050 ||
+                            MediaQuery.of(context).size.width < 650)
+                        ? EdgeInsets.fromLTRB(8, 0, 4, 0)
+                        : EdgeInsets.fromLTRB(8, 0, 16, 0),
                     child: Text(
                         "Mailchimp like feature to create custom email templates using the drag and drop option along with saving templateds",
                         style: TextStyle(
@@ -515,11 +533,13 @@ class ListFeedbackItems extends StatelessWidget {
                   //Addmsg Image
                   Image.asset(
                     'assets/images/chat.png',
-                    width: MediaQuery.of(context).size.width * .03,
+                    width: MediaQuery.of(context).size.width < 1050
+                        ? 30
+                        : MediaQuery.of(context).size.width * .03,
                     height: 30,
                   ),
                   SizedBox(
-                    width: 6,
+                    width: 3,
                   ),
                   Text(likes.toString(),
                       style: TextStyle(
@@ -569,9 +589,12 @@ class _LikedState extends State<Liked> {
           borderRadius: BorderRadius.all(Radius.circular(15.0))),
       child: Container(
         width: MediaQuery.of(context).size.width * .1,
-        height: 125,
-        padding: EdgeInsets.all(16),
+        height: MediaQuery.of(context).size.width < 1050 ? 200 : 125,
+        padding: MediaQuery.of(context).size.width < 1050
+            ? EdgeInsets.all(4)
+            : EdgeInsets.all(16),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             InkWell(
               onTap: () {
@@ -586,7 +609,8 @@ class _LikedState extends State<Liked> {
             SizedBox(height: 10),
             Text(likes.toString(),
                 style: TextStyle(
-                    fontSize: 15,
+                    fontSize:
+                        MediaQuery.of(context).size.width < 1050 ? 12 : 15,
                     fontFamily: 'Lato',
                     color: AppColors.BACKGROUND_COLOR)),
           ],
@@ -629,9 +653,12 @@ class _DislikeState extends State<Dislike> {
           borderRadius: BorderRadius.all(Radius.circular(15.0))),
       child: Container(
         width: MediaQuery.of(context).size.width * .1,
-        height: 125,
-        padding: EdgeInsets.all(16),
+        height: MediaQuery.of(context).size.width < 1050 ? 200 : 125,
+        padding: MediaQuery.of(context).size.width < 1050
+            ? EdgeInsets.all(4)
+            : EdgeInsets.all(16),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             InkWell(
               onTap: () {
@@ -642,12 +669,12 @@ class _DislikeState extends State<Dislike> {
                 image: AssetImage('assets/images/dislikes.png'),
               ),
             ),
-
             //  Image.asset('assets/images/likes.png'),
             SizedBox(height: 10),
             Text(dislikes.toString(),
                 style: TextStyle(
-                    fontSize: 15,
+                    fontSize:
+                        MediaQuery.of(context).size.width < 1050 ? 12 : 15,
                     fontFamily: 'Lato',
                     color: AppColors.BACKGROUND_COLOR)),
           ],
