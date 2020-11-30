@@ -2,9 +2,11 @@ import 'package:feedback/resources/app_colors.dart';
 import 'package:feedback/screens/agents/agents.dart';
 import 'package:feedback/screens/company_profile/company_profile.dart';
 import 'package:feedback/screens/personal_profile/personal_profile.dart';
+import 'package:feedback/screens/rentals/rentals.dart';
 import 'package:feedback/widgets/agent_widgets/agent_widgets.dart';
 import 'package:feedback/widgets/company_profile/company_profile.dart';
 import 'package:feedback/widgets/personal_profile/personal_profile.dart';
+import 'package:feedback/widgets/rentals/responsive_billing.dart';
 import 'package:flutter/material.dart';
 
 class ProfileMenu extends StatelessWidget {
@@ -85,15 +87,26 @@ class ProfileMenu extends StatelessWidget {
                       color: AppColors.BACKGROUND_COLOR),
                 )),
           ),
-          Container(
-              margin: EdgeInsets.fromLTRB(16, 8, 16, 0),
-              child: Text(
-                'Billing',
-                style: TextStyle(
-                    fontSize: 13,
-                    fontFamily: 'Open',
-                    color: AppColors.BACKGROUND_COLOR),
-              ))
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        (MediaQuery.of(context).size.width < 1000 ||
+                                MediaQuery.of(context).size.height < 650)
+                            ? ResponsiveBilling()
+                            : RentalsPage()),
+              );
+            },
+            child: Container(
+                margin: EdgeInsets.fromLTRB(16, 8, 16, 0),
+                child: Text('Billing',
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontFamily: 'Open',
+                        color: AppColors.BACKGROUND_COLOR))),
+          )
         ],
       ),
     );
