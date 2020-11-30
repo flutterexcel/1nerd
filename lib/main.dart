@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       // home: MenuPage(),
       initialRoute: '/',
       routes: {
-        '/': (context) => MediaQuery.of(context).size.width < 1050
+        '/': (context) => MediaQuery.of(context).size.width < 500
             ? MobileMenuPage()
             : MenuPage(),
         '/account': (context) => AccountPage(),
