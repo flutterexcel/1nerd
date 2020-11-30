@@ -1,14 +1,11 @@
 import 'package:feedback/main.dart';
 import 'package:feedback/resources/app_colors.dart';
 import 'package:feedback/widgets/account_widgets/account_widgets.dart';
+import 'package:feedback/widgets/account_widgets/credit_report/credit_report.dart';
+import 'package:feedback/widgets/account_widgets/credit_report/person_credit_report.dart';
 import 'package:flutter/material.dart';
 
-class AccountPage extends StatefulWidget {
-  @override
-  _AccountPageState createState() => _AccountPageState();
-}
-
-class _AccountPageState extends State<AccountPage> {
+class CreditReport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,34 +13,28 @@ class _AccountPageState extends State<AccountPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            children: [
+            children: <Widget>[
               MenuHorizontal(),
               SizedBox(height: 10),
               AccountType(),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   AccountProfileMenu(),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Profile(),
+                    children: <Widget>[
+                      CreditHeading(),
                       Container(
                         width: MediaQuery.of(context).size.width * .3,
                         color: Colors.white,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            ProfilePic(),
-                            SizedBox(height: 20),
-                            ProfileDetails(),
-                          ],
-                        ),
-                      ),
+                        padding: EdgeInsets.only(top: 10),
+                        child: PersonCreditReport(),
+                      )
                     ],
                   ),
                 ],
-              ),
+              )
             ],
           ),
         ),

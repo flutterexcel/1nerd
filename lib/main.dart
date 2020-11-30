@@ -3,6 +3,7 @@ import 'package:feedback/screens/account/account.dart';
 import 'package:feedback/screens/clients/clients.dart';
 import 'package:feedback/screens/rentals/rentals.dart';
 import 'package:feedback/screens/sales/sales.dart';
+import 'package:feedback/widgets/account_widgets/responsive_account.dart';
 import 'package:feedback/widgets/rentals/rentals.dart';
 import 'package:feedback/widgets/search.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,10 @@ class MyApp extends StatelessWidget {
         '/': (context) => MediaQuery.of(context).size.width < 500
             ? MobileMenuPage()
             : MenuPage(),
-        '/account': (context) => AccountPage(),
+        '/account': (context) => (MediaQuery.of(context).size.width < 850 ||
+                MediaQuery.of(context).size.height < 600)
+            ? ResponsiveAccount()
+            : AccountPage(),
         '/sales': (context) => SalesPage(),
         '/rentals': (context) => MediaQuery.of(context).size.width < 1050
             ? ResponsiveBilling()
@@ -359,3 +363,98 @@ class MobileMenu extends StatelessWidget {
     ));
   }
 }
+
+class MenuHorizontal extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //width: MediaQuery.of(context).size.width,
+      color: AppColors.BACKGROUND_COLOR,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            child: Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.fromLTRB(8, 8, 16, 16),
+                  child: Text(
+                    '1NERD',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontFamily: 'Passion',
+                        fontStyle: FontStyle.italic,
+                        letterSpacing: 1),
+                  ),
+                ),
+                SizedBox(width: 20),
+                Container(
+                  width: 150,
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'Sales',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/sales');
+                    },
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  child: ListTile(
+                    leading: Icon(Icons.location_city, color: Colors.white),
+                    title: Text(
+                      'Rentals',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/rentals');
+                    },
+                  ),
+                ),
+                Container(
+                  width: 200,
+                  child: ListTile(
+                    leading: Icon(Icons.edit_location, color: Colors.white),
+                    title: Text(
+                      'Neighborhood',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/rentals');
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Row(
+            children: [
+              Text('Advertise', style: TextStyle(color: AppColors.LIGHT_GREEN)),
+              SizedBox(width: 10),
+              FlatButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18)),
+                onPressed: () {},
+                textColor: AppColors.BACKGROUND_COLOR,
+                child: Text(
+                  'Sign In / Register',
+                  style: TextStyle(),
+                ),
+                color: AppColors.LIGHT_GREEN,
+              ),
+              SizedBox(width: 10)
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
