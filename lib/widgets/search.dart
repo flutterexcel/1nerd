@@ -10,7 +10,7 @@ class SearchBar extends StatelessWidget {
       children: [
         Container(
           width: MediaQuery.of(context).size.width * .6,
-          margin: EdgeInsets.only(left: 16, top: 16, right: 70),
+          margin: EdgeInsets.only(left: 16, top: 16, right: 60),
           height: 40,
           child: TextFormField(
             controller: _search,

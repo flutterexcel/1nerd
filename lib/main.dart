@@ -4,6 +4,7 @@ import 'package:feedback/screens/clients/clients.dart';
 import 'package:feedback/screens/rentals/rentals.dart';
 import 'package:feedback/screens/sales/sales.dart';
 import 'package:feedback/widgets/account_widgets/responsive_account.dart';
+import 'package:feedback/widgets/rentals/rentals.dart';
 import 'package:feedback/widgets/search.dart';
 import 'package:flutter/material.dart';
 import 'package:feedback/screens/feedback.dart';
@@ -26,7 +27,9 @@ class MyApp extends StatelessWidget {
             ? ResponsiveAccount()
             : AccountPage(),
         '/sales': (context) => SalesPage(),
-        '/rentals': (context) => RentalsPage(),
+        '/rentals': (context) => MediaQuery.of(context).size.width < 1050
+            ? ResponsiveBilling()
+            : RentalsPage(),
         '/clients': (context) => ClientsPage(),
       },
     );
@@ -127,7 +130,7 @@ class MenuPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * .5,
+                      height: MediaQuery.of(context).size.height - 350,
                     ),
                     Container(
                       width: 200,
@@ -296,6 +299,7 @@ class MobileMenuPage extends StatelessWidget {
                           child: Icon(Icons.apps, color: Colors.white)),
                       InkWell(child: Icon(Icons.home, color: Colors.white)),
                       InkWell(
+                          onTap: () => Navigator.pushNamed(context, '/rentals'),
                           child:
                               Icon(Icons.location_city, color: Colors.white)),
                       InkWell(child: Icon(Icons.person, color: Colors.white)),
@@ -453,5 +457,4 @@ class MenuHorizontal extends StatelessWidget {
     );
   }
 }
-
 
