@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
       // home: MenuPage(),
       initialRoute: '/',
       routes: {
-        '/': (context) => MediaQuery.of(context).size.width < 500
+        '/': (context) => (MediaQuery.of(context).size.width < 850 ||
+                MediaQuery.of(context).size.height < 600)
             ? MobileMenuPage()
             : MenuPage(),
         '/account': (context) => (MediaQuery.of(context).size.width < 850 ||
@@ -457,4 +458,3 @@ class MenuHorizontal extends StatelessWidget {
     );
   }
 }
-
